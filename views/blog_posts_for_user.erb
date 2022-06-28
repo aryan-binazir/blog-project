@@ -1,0 +1,40 @@
+<div class="header">
+      <h2><%= @user[:user_name] %> - <%= @user[:blog_name] %></h2>
+      <form action="/blogs" method="get">
+        <input type="submit" name="back" value="All Blogs" />
+      </form>
+
+      <% if session[:signed_in] %>
+      <form action=<%= "/blogs/#{session[:signed_in_id]}/posts/add" %> method="get">
+        <input type="submit" value="Add Post" />
+      </form>
+      <form action="/blogs/sign_out" method="post">
+        <input type="submit" name="sign_out" value="Sign Out" />
+      </form>
+      <% if session[:signed_in_id] == @user[:id]%>
+        <form action=<%= "/blogs/delete_account/#{session[:signed_in_id]}" %> method="post">
+          <input type="submit" id="delete" name="delete" value="Delete My Account" />
+        </form>
+      <% end %>
+      <% else %>
+      <form action="/blogs/sign_in" method="get">
+        <input type="submit" name="sign_in" value="Sign In" />
+      </form>
+      <% end %>
+</div>
+<% @posts.each do |post| %>
+<div class="row">
+  <div class="card">
+    <a href= <%= "/blogs/posts/#{post[:id]}" %>
+      <h2><%= post[:title] %></h2>
+      <h5><%= post[:date] %></h5>
+        <img src= <%= "/images/" + post[:img] %> style='width: 45%; object-fit: contain'/>
+      <p><%= post[:text].split(' ')[0..10].join(' ') + '...'%></p>
+    </a>
+  </div>
+</div>
+<% end %>
+  
+<div class="footer">
+  <h2>Add back to list of blogs here</h2>
+</div>

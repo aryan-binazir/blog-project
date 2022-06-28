@@ -1,0 +1,20 @@
+<div class="header">
+     <h2>Add photo?</h2>
+</div>
+
+<div class="row">
+    <div class="card">
+        <p>Would you like to change the photo on this post?</p><br > <br >
+        <form action=<%= "/blogs/posts/edit/" + @post_id + "/upload" %>  method="post"
+        enctype="multipart/form-data">
+          <label for="myfile">Select a file:</label>
+          <input type="file" name="image">
+          <br /><br />
+          <input type="submit" value="Add"/><button><a href=<%="/blogs/posts/" + @post_id %>>Default</a></button>
+        </form>
+    </div>
+</div>
+    
+<div class="footer">
+  <h2>Add back to list of blogs here</h2>
+</div>

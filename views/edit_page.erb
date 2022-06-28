@@ -1,0 +1,20 @@
+<div class="header">
+     <h2>Edit Post</h2>
+      <a href= <%="/blogs/posts/" + @post[:id].to_s %>><button>Back</button></a>
+</div>
+
+<div class="row">
+  <div class="card">
+    <form id="sign_in" method="post" action=<%= "/blogs/posts/edit/" + @post[:id].to_s %>>
+      <p>Title: </p><input name="title" value="<%= @post[:title] %>" required>
+      <p>Date: </p><input type="date" name="date" value="<%= @post[:date] %>" required><br>
+      <p>Text: </p><input id="text-box" type="text" name="text" value="<%= @post[:text] %>" required><br>
+
+      <button type="submit">Submit</button><button type="button"><a href=<%="/blogs/posts/" + @post[:id].to_s%>>Cancel</a></button>
+    </form>
+  </div>
+    </div>
+    
+<div class="footer">
+  <h2>Add back to list of blogs here</h2>
+</div>

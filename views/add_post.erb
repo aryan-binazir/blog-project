@@ -1,0 +1,19 @@
+<div class="header">
+     <h2>Add Post</h2>
+      <a href= <%="/blogs/posts/" + session[:signed_in_id] %>><button>Back</button></a>
+</div>
+
+<div class="row">
+    <form id="add_post" method="post" action=<%= "/blogs/#{session[:signed_in_id]}/posts/add" %>>
+      <p>Title: </p><input name="title" value="" required>
+      <p>Date: </p><input type="date" name="date" value="" required><br>
+      <p>Text: </p><input id="text-box" type="text" name="text" value="" required><br>
+
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </div>
+    
+<div class="footer">
+  <h2>Add back to list of blogs here</h2>
+</div>

@@ -1,0 +1,18 @@
+<div class="header">
+     <h2>Blogs your way!</h2>
+      <a href= <%="/blogs" %>><button>Back</button></a>
+</div>
+
+<div class="row">
+    <div class="card">
+    <form id="sign_in" method="post" action="/blogs/sign_in">
+    <p>Username:</p><input name="user_name" required>
+    <p>Password:</p><input type="password" name="password" required><br>
+    <button type="submit">Sign in</button><button type="button"><a href="/blogs">Cancel</a></button>
+    </form>
+    </div>
+</div>
+
+<div class="footer">
+  <h2>Add back to list of blogs here</h2>
+</div>

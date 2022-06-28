@@ -1,0 +1,30 @@
+<div class="header">
+      <h2><%= @post[:title] %> - <%= @post[:date] %> </h2>
+      <form action=<%= "/blogs/#{@post[:blogger_id]}"%> method="get">
+        <input type="submit" name="back" value="All Posts" />
+      </form>
+      <% if session[:signed_in] %>
+      <form action="/blogs/sign_out" method="post">
+        <input type="submit" name="sign_out" value="Sign Out" />
+      </form>
+        <% if session[:signed_in_id] == @post[:blogger_id] %>
+            <form action=<%= "/blogs/posts/edit/" + @post[:id].to_s %> method="get">
+              <input type="submit" name="sign_out" value="Edit" />
+            </form>
+            <form action=<%= "/blogs/posts/delete/" + @post[:id].to_s %> method="post">
+              <input type="submit" id="delete" value="Delete" />
+            </form>
+        <% end %>
+      <% else %>
+      <form action="/blogs/sign_in" method="get">
+        <input type="submit" name="sign_in" value="Sign In" />
+      </form>
+      <% end %>
+</div>
+
+<div class="row">
+    <div class="card">
+          <img src= <%= "/images/" + @post[:img] %> style='height: 100%; width: 100%; object-fit: contain'/>
+        <p><%= @post[:text] %></p>
+    </div>
+  </div>

@@ -41,6 +41,9 @@ class DatabasePersistence
 
   def add_user_blog(user_name, password, blog_name)
     sql = "INSERT INTO users (user_name, blog_name, password) VALUES ($1, $2, $3);"
+    p user_name
+    p password
+    p blog_name
     result = query(sql, user_name, blog_name, password)
   end
 

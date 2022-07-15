@@ -5,3 +5,7 @@ gem "sinatra", "~>1.4.7"
 gem "sinatra-contrib"
 gem "erubis"
 gem "pg", "1.2.3"
+
+group :production do
+  gem "puma"
+end
